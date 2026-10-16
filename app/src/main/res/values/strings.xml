@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CineCane</string>
+    <string name="app_name_first">Cine</string>
+    <string name="app_name_second">Cane</string>
+    <string name="welcome_text">¿Qué buscamos hoy?</string>
+    <string name="popular_text">Peliculas Pupulares</string>
+</resources>
