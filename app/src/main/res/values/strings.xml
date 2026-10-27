@@ -2,6 +2,14 @@
     <string name="app_name">CineCane</string>
     <string name="app_name_first">Cine</string>
     <string name="app_name_second">Cane</string>
+
     <string name="welcome_text">¿Qué buscamos hoy?</string>
     <string name="popular_text">Peliculas Pupulares</string>
+
+    <string name="errorTitle">¡Ups! Algo salió mal</string>
+    <string name="connectionExeption">Verifique su conexion e intente nuevamente</string>
+    <string name="dataExeption">Hubo un error al cargar los datos, intente nuevamente mas tarde</string>
+    <string name="peliculasEmpty">No hay peliculas para mostrar</string>
+    <string name="loading">Cargando peliculas . . . </string>
+    <string name="retry">Reintentar</string>
 </resources>

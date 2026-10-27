@@ -23,53 +23,24 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.seminarioAndroid.cinecane.UI.composables.EnCANEzado
+import com.seminarioAndroid.cinecane.UI.home.HomeView
+import com.seminarioAndroid.cinecane.UI.home.HomeViewModel
 import com.seminarioAndroid.cinecane.data.remote.dto.movie.MovieDto
+import com.seminarioAndroid.cinecane.data.remote.repository.MovieRepository
 
-class MainActivity : AppCompatActivity() {
+class MainActivity () : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            var peliculas by remember { mutableStateOf<List<MovieDto>>(emptyList()) }
+            val viewModel: HomeViewModel = viewModel(
+                factory = HomeViewModel.Factory
+            )
 
-            LaunchedEffect(Unit) {
-                try {
-                    peliculas = RetrofitClient.api.getPopulares().results
-                } catch (e: Exception) {
-                    Log.e("CineCane", "Error al traer películas", e)
-                }
-            }
-
-            MaterialTheme {
-                Column {
-                    EnCANEzado();
-
-                    Text(text = stringResource(R.string.welcome_text),
-                         color = colorResource(R.color.textColor),
-                        fontSize = 25.sp,
-                        fontWeight = FontWeight.Bold,
-                        modifier = Modifier.padding(start = 20.dp, bottom = 20.dp, top = 10.dp))
-
-
-                    //ACA IRIA LA BARRA DE BUSQUEDA
-
-
-                    Column() {
-
-                        Text(text = stringResource(R.string.popular_text),
-                             color = colorResource(R.color.textColor),
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.Bold,
-                            modifier = Modifier.padding(20.dp)
-                        )
-
-                        ListaDePeliculasHorizontal(peliculas)
-
-                    }
-
-                }
-            }
+            HomeView(viewModel = viewModel)
         }
     }
 }
