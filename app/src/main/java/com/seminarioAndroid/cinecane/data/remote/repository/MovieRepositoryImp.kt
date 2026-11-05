@@ -8,12 +8,12 @@ class MovieRepositoryImp (
     val movieService : TmdbApiService
 ) : MovieRepository{
 
-    override suspend fun getPopulares() : List<MovieDto> {
-        return movieService.getPopulares().results
+    override suspend fun getPopulares(language : String) : List<MovieDto> {
+        return movieService.getPopulares(language).results
     }
 
-    override suspend fun getPelicula(id : Int) : MovieDetailDto {
-        return movieService.getPelicula(id)
+    override suspend fun getPelicula(id : Int, language : String) : MovieDetailDto {
+        return movieService.getPelicula(id, language)
     }
 
 }

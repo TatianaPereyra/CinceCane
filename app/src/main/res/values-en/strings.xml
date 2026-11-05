@@ -10,7 +10,8 @@
     <string name="connectionExeption">Check your connection and try again</string>
     <string name="dataExeption">There was an error loading the data, please try again later</string>
     <string name="peliculasEmpty">No movies to show</string>
-    <string name="loading">Loading movies . . . </string>
+    <string name="peliculaEmpty">Movie not found</string>
+    <string name="loading">Loading. . . </string>
     <string name="retry">Retry</string>
 
     <string name="detail_title">Movie details</string>

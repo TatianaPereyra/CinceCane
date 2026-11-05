@@ -6,8 +6,8 @@ import com.seminarioAndroid.cinecane.data.remote.dto.movie.MovieDto
 
 interface MovieRepository{
 
-    suspend fun getPopulares() : List<MovieDto>
+    suspend fun getPopulares(language : String) : List<MovieDto>
 
-    suspend fun getPelicula(id : Int) : MovieDetailDto
+    suspend fun getPelicula(id : Int, language : String) : MovieDetailDto
 
 }

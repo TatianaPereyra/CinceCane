@@ -71,7 +71,6 @@ fun DetailMovieView(
             pelicula != null -> DetallePelicula(pelicula!!)
         }
 
-        // El botón de volver queda siempre visible, encima del contenido
         BotonAtras(onBack = onBack, modifier = Modifier.align(Alignment.TopStart))
     }
 }

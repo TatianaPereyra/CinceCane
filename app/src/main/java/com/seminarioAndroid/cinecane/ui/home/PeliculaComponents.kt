@@ -1,4 +1,4 @@
-package com.seminarioAndroid.cinecane.ui.movieDetail
+package com.seminarioAndroid.cinecane.ui.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -34,17 +34,16 @@ fun MiniaturaPelicula(
     Column(
         modifier = Modifier
             .width(200.dp)
-            .height(350.dp)
             .background(
                 color = colorResource(id = R.color.primaryColor),
                 shape = RoundedCornerShape(12.dp)
             )
             .clickable(onClick = onClick)
             .padding(8.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+        verticalArrangement = Arrangement.spacedBy(6.dp)
     ) {
         AsyncImage(
-            model = "https://image.tmdb.org/t/p/w500/${pelicula.posterPath}",
+            model = "https://image.tmdb.org/t/p/w500${pelicula.posterPath}",
             contentDescription = "Póster de ${pelicula.title}",
             modifier = Modifier
                 .fillMaxWidth()
@@ -56,9 +55,8 @@ fun MiniaturaPelicula(
         Text(
             text = pelicula.title,
             color = colorResource(id = R.color.textColor),
-            maxLines = 2,
-            overflow = TextOverflow.Ellipsis,
-            modifier = Modifier.height(50.dp)
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis
         )
 
         Text(

@@ -15,7 +15,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.seminarioAndroid.cinecane.R
 import com.seminarioAndroid.cinecane.ui.composables.EnCANEzado
 import com.seminarioAndroid.cinecane.ui.composables.HandleError
-import com.seminarioAndroid.cinecane.ui.movieDetail.ListaDePeliculasHorizontal
 import com.seminarioAndroid.cinecane.ui.composables.Loading
 import androidx.compose.runtime.getValue
 

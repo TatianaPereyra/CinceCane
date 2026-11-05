@@ -9,6 +9,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.seminarioAndroid.cinecane.R
 import com.seminarioAndroid.cinecane.app.CineCaneApplication
+import com.seminarioAndroid.cinecane.app.DeviceLocale
 import com.seminarioAndroid.cinecane.data.remote.dto.movie.MovieDetailDto
 import com.seminarioAndroid.cinecane.data.remote.repository.MovieRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -55,7 +56,7 @@ class DetailMovieViewModel (
             _noEncontrada.value = false
 
             try {
-                _pelicula.value = repository.getPelicula(movieId)
+                _pelicula.value = repository.getPelicula(movieId, DeviceLocale.languageTag())
 
             }catch (e : HttpException) {
                 if(e.code() == 404){

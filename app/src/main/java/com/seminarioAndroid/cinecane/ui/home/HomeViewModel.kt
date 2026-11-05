@@ -10,6 +10,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.seminarioAndroid.cinecane.R
 import com.seminarioAndroid.cinecane.app.CineCaneApplication
+import com.seminarioAndroid.cinecane.app.DeviceLocale
 import com.seminarioAndroid.cinecane.data.remote.dto.movie.MovieDto
 import com.seminarioAndroid.cinecane.data.remote.repository.MovieRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -55,7 +56,8 @@ class HomeViewModel(
             _exeption.value = null
 
             try {
-                _peliculas.value = repository.getPopulares()
+                //Llamo al objeto para obtener el lenguaje cuando realizo la llamada al repository
+                _peliculas.value = repository.getPopulares(DeviceLocale.languageTag())
 
             }catch (e : IOException) {
                 _exeption.value = context.getString(R.string.connectionExeption)
