@@ -1,4 +1,4 @@
-package com.seminarioAndroid.cinecane.UI.home
+package com.seminarioAndroid.cinecane.ui.home
 
 import android.app.Application
 import retrofit2.HttpException

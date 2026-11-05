@@ -12,4 +12,15 @@
     <string name="peliculasEmpty">No hay peliculas para mostrar</string>
     <string name="loading">Cargando peliculas . . . </string>
     <string name="retry">Reintentar</string>
+
+    <string name="detail_title">Detalle de la película</string>
+    <string name="back">Volver</string>
+    <string name="genres">Géneros</string>
+    <string name="overview">Sinopsis</string>
+    <string name="voteAverage">Puntuación</string>
+    <string name="voteCount">Votos</string>
+    <string name="popularity">Popularidad</string>
+    <string name="peliculaNoEncontrada">No se encontró la película solicitada</string>
+    <string name="sinopsisNoDisponible">Sin sinopsis disponible</string>
+    <string name="sinPortada">Sin portada disponible</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.seminarioAndroid.cinecane.UI.composables
+package com.seminarioAndroid.cinecane.ui.composables
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

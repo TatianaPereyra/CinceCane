@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">CineCane</string>
+    <string name="app_name_first">Cine</string>
+    <string name="app_name_second">Cane</string>
+
+    <string name="welcome_text">What are we looking for today?</string>
+    <string name="popular_text">Popular Movies</string>
+
+    <string name="errorTitle">Oops! Something went wrong</string>
+    <string name="connectionExeption">Check your connection and try again</string>
+    <string name="dataExeption">There was an error loading the data, please try again later</string>
+    <string name="peliculasEmpty">No movies to show</string>
+    <string name="loading">Loading movies . . . </string>
+    <string name="retry">Retry</string>
+
+    <string name="detail_title">Movie details</string>
+    <string name="back">Back</string>
+    <string name="genres">Genres</string>
+    <string name="overview">Overview</string>
+    <string name="voteAverage">Rating</string>
+    <string name="voteCount">Votes</string>
+    <string name="popularity">Popularity</string>
+    <string name="peliculaNoEncontrada">The requested movie was not found</string>
+    <string name="sinopsisNoDisponible">No overview available</string>
+    <string name="sinPortada">No poster available</string>
+</resources>

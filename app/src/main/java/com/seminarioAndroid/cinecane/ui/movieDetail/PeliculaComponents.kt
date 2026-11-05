@@ -1,6 +1,7 @@
-package com.seminarioAndroid.cinecane.UI.composables
+package com.seminarioAndroid.cinecane.ui.movieDetail
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -26,7 +27,10 @@ import com.seminarioAndroid.cinecane.data.remote.dto.movie.MovieDto
 
 // Miniatura de la pelicula renderiza en la lista
 @Composable
-fun MiniaturaPelicula(pelicula: MovieDto) {
+fun MiniaturaPelicula(
+    pelicula: MovieDto,
+    onClick: () -> Unit
+) {
     Column(
         modifier = Modifier
             .width(200.dp)
@@ -35,6 +39,7 @@ fun MiniaturaPelicula(pelicula: MovieDto) {
                 color = colorResource(id = R.color.primaryColor),
                 shape = RoundedCornerShape(12.dp)
             )
+            .clickable(onClick = onClick)
             .padding(8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
@@ -67,7 +72,8 @@ fun MiniaturaPelicula(pelicula: MovieDto) {
 //Lista horizontal para pantalla principal - POPULARES
 @Composable
 fun ListaDePeliculasHorizontal(
-    peliculas: List<MovieDto>
+    peliculas: List<MovieDto>,
+    onPeliculaClick: (MovieDto) -> Unit
 ) {
     LazyRow(
         modifier = Modifier
@@ -80,7 +86,11 @@ fun ListaDePeliculasHorizontal(
         contentPadding = PaddingValues(horizontal = 16.dp)
     ) {
         items(peliculas) { pelicula ->
-            MiniaturaPelicula(pelicula)
+            MiniaturaPelicula(
+                pelicula = pelicula,
+                onClick = { onPeliculaClick(pelicula) }
+            )
         }
     }
 }
+
