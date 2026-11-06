@@ -34,7 +34,7 @@ fun Loading(){
 
         Text(
             text = stringResource(R.string.loading),
-            color = colorResource(R.color.loader),
+            color = colorResource(R.color.secondTextColor),
             fontSize = 12.sp
         )
     }

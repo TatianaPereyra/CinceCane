@@ -11,10 +11,13 @@ import com.seminarioAndroid.cinecane.ui.home.HomeView
 import com.seminarioAndroid.cinecane.ui.home.HomeViewModel
 import com.seminarioAndroid.cinecane.ui.movieDetail.DetailMovieView
 import com.seminarioAndroid.cinecane.ui.movieDetail.DetailMovieViewModel
+import com.seminarioAndroid.cinecane.ui.search.SearchView
+import com.seminarioAndroid.cinecane.ui.search.SearchViewModel
 
 //Rutas utilziadas para navegar
 private object Routes {
     const val HOME = "home"
+    const val SEARCH = "search"
     const val DETAIL = "detail/{movieId}"
 
     fun detail(movieId : Int) = "detail/$movieId"
@@ -24,6 +27,7 @@ private object Routes {
  * Define las pantallas de la app y cómo se navega entre ellas.
  *
  * - [Routes.HOME]: lista de películas populares. Al tocar una película se navega al detalle.
+ * - [Routes.SEARCH]: pantalla de búsqueda de películas.
  * - [Routes.DETAIL]: detalle de una película. Recibe el id por la ruta (`detail/{movieId}`)
  *   y vuelve a la pantalla anterior con el botón de atrás.
  *
@@ -47,7 +51,21 @@ fun CineCaneNavHost() {
             HomeView(
                 viewModel = viewModel,
                 //Permite que desde un click sobre alguna pelicula se navegue al detalle de la misma
-                onMovieClick = { movieId -> navController.navigate(Routes.detail(movieId)) }
+                onMovieClick = { movieId -> navController.navigate(Routes.detail(movieId)) },
+                onSearchClick = { navController.navigate(Routes.SEARCH) }
+            )
+        }
+
+        //Declara la navegacion a la ruta de busqueda
+        composable(Routes.SEARCH) {
+            val viewModel : SearchViewModel = viewModel(
+                factory = SearchViewModel.Factory
+            )
+
+            SearchView(
+                viewModel = viewModel,
+                onMovieClick = { movieId -> navController.navigate(Routes.detail(movieId)) },
+                onBack = { navController.popBackStack() }
             )
         }
 

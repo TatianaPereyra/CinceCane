@@ -10,4 +10,6 @@ interface MovieRepository{
 
     suspend fun getPelicula(id : Int, language : String) : MovieDetailDto
 
+    suspend fun searchMovies(query: String, language: String): List<MovieDto>
+
 }

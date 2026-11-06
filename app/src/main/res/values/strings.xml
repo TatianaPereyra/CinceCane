@@ -5,6 +5,10 @@
 
     <string name="welcome_text">¿Qué buscamos hoy?</string>
     <string name="popular_text">Peliculas Populares</string>
+    <string name="search_hint">Buscar películas…</string>
+    <string name="search_title">Buscar</string>
+    <string name="search_empty">No se encontraron películas</string>
+    <string name="search_prompt">Escribe algo para buscar películas</string>
 
     <string name="errorTitle">¡Ups! Algo salió mal</string>
     <string name="connectionExeption">Verifique su conexion e intente nuevamente</string>

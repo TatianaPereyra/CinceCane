@@ -1,16 +1,18 @@
-package com.seminarioAndroid.cinecane.ui.home
+package com.seminarioAndroid.cinecane.ui.composables
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -29,13 +31,18 @@ import com.seminarioAndroid.cinecane.data.remote.dto.movie.MovieDto
 @Composable
 fun MiniaturaPelicula(
     pelicula: MovieDto,
+    modifier: Modifier = Modifier,
     onClick: () -> Unit
 ) {
     Column(
-        modifier = Modifier
-            .width(200.dp)
+        modifier = modifier
             .background(
                 color = colorResource(id = R.color.primaryColor),
+                shape = RoundedCornerShape(12.dp)
+            )
+            .border(
+                width = 1.5.dp,
+                color = colorResource(id = R.color.secondaryColor),
                 shape = RoundedCornerShape(12.dp)
             )
             .clickable(onClick = onClick)
@@ -69,26 +76,21 @@ fun MiniaturaPelicula(
 
 //Lista horizontal para pantalla principal - POPULARES
 @Composable
-fun ListaDePeliculasHorizontal(
+fun ListaDePeliculasVertical(
     peliculas: List<MovieDto>,
     onPeliculaClick: (MovieDto) -> Unit
 ) {
-    LazyRow(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(
-                colorResource(id = R.color.secondaryColor)
-            )
-            .padding(vertical = 12.dp),
+    LazyVerticalGrid(
+        columns = GridCells.Fixed(2),
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
         horizontalArrangement = Arrangement.spacedBy(12.dp),
-        contentPadding = PaddingValues(horizontal = 16.dp)
+        contentPadding = PaddingValues(16.dp)
     ) {
         items(peliculas) { pelicula ->
-            MiniaturaPelicula(
-                pelicula = pelicula,
-                onClick = { onPeliculaClick(pelicula) }
-            )
+            MiniaturaPelicula(pelicula = pelicula,
+                modifier = Modifier.fillMaxWidth(),
+                onClick = { onPeliculaClick(pelicula) })
         }
     }
 }
-

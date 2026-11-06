@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="caneHeader">#FC598E</color>
+
     <color name="primaryColor">#FFFFFFFF</color>
-    <color name="secondaryColor">#FC598E</color>
-    <color name="buttonColor">#FCBECF</color>
+    <color name="secondaryColor">#FCBECF</color>
+    <color name="extraColor">#FC598E</color>
+
     <color name="textColor">#000000</color>
-    <color name="loader">#D1D1D1</color>
+    <color name="secondTextColor">#D1D1D1</color>
 </resources>

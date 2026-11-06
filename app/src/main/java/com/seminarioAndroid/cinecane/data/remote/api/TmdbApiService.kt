@@ -19,4 +19,10 @@ interface TmdbApiService {
         @Query("language") language : String
     ) : MovieDetailDto;
 
+    @GET("search/movie")
+    suspend fun searchMovies(
+        @Query("query") query: String,
+        @Query("language") language: String
+    ): MovieResponseDto;
+
 }

@@ -17,11 +17,13 @@ import com.seminarioAndroid.cinecane.ui.composables.EnCANEzado
 import com.seminarioAndroid.cinecane.ui.composables.HandleError
 import com.seminarioAndroid.cinecane.ui.composables.Loading
 import androidx.compose.runtime.getValue
+import com.seminarioAndroid.cinecane.ui.composables.ListaDePeliculasVertical
 
 @Composable
 fun HomeView(
     viewModel : HomeViewModel,
-    onMovieClick : (Int) -> Unit
+    onMovieClick : (Int) -> Unit,
+    onSearchClick : () -> Unit
 ){
 
     //Observa el valor del stateFlow y le indica a Compose actualizar la pantalla
@@ -31,7 +33,7 @@ fun HomeView(
 
     Column(modifier = Modifier.fillMaxSize()) {
 
-        EnCANEzado()
+        EnCANEzado(onSearchClick = onSearchClick)
 
         Text(
             text = stringResource(R.string.welcome_text),
@@ -49,21 +51,17 @@ fun HomeView(
             modifier = Modifier.padding(start = 20.dp, end = 20.dp, top = 24.dp, bottom = 12.dp)
         )
 
-        if(isLoading){
-            Loading()
-
-        }else if(exeption != null){
-            HandleError(
+        when {
+            isLoading -> Loading()
+            exeption != null -> HandleError(
                 exeption!!,
-                onRetry = { viewModel.cargarPeliculas() })
-
-        }else if(peliculas.isEmpty()){
-            HandleError(
+                onRetry = { viewModel.cargarPeliculas() }
+            )
+            peliculas.isEmpty() -> HandleError(
                 stringResource(R.string.peliculasEmpty),
-                onRetry = { viewModel.cargarPeliculas() })
-
-        }else{
-            ListaDePeliculasHorizontal(
+                onRetry = { viewModel.cargarPeliculas() }
+            )
+            else -> ListaDePeliculasVertical(
                 peliculas,
                 onPeliculaClick = { pelicula -> onMovieClick(pelicula.id) }
             )

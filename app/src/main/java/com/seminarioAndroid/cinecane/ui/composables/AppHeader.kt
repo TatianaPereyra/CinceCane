@@ -7,6 +7,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -30,10 +34,12 @@ val Agbalumo = FontFamily(
 
 // Encabezado
 @Composable
-fun EnCANEzado() {
+fun EnCANEzado(
+    onSearchClick: (() -> Unit)? = null
+) {
 
     val colorPrimero = colorResource(R.color.textColor)
-    val colorSegundo = colorResource(R.color.secondaryColor)
+    val colorSegundo = colorResource(R.color.caneHeader)
     val primero = stringResource(R.string.app_name_first)
     val segundo = stringResource(R.string.app_name_second)
 
@@ -45,24 +51,38 @@ fun EnCANEzado() {
 
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
             .fillMaxWidth()
             .statusBarsPadding()
             .padding(horizontal = 20.dp, vertical = 8.dp)
     ) {
-        Image(
-            painter = painterResource(R.drawable.logo_cinecane),
-            contentDescription = null,
-            modifier = Modifier.size(72.dp)
-        )
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Image(
+                painter = painterResource(R.drawable.logo_cinecane),
+                contentDescription = null,
+                modifier = Modifier.size(72.dp)
+            )
 
-        Text(
-            text = nombre,
-            fontSize = 30.sp,
-            fontFamily = Agbalumo
-        )
+            Text(
+                text = nombre,
+                fontSize = 30.sp,
+                fontFamily = Agbalumo
+            )
+        }
 
-
+        if (onSearchClick != null) {
+            IconButton(onClick = onSearchClick) {
+                Icon(
+                    imageVector = Icons.Default.Search,
+                    contentDescription = stringResource(R.string.search_title),
+                    tint = colorResource(R.color.textColor),
+                    modifier = Modifier.size(32.dp)
+                )
+            }
+        }
     }
 }

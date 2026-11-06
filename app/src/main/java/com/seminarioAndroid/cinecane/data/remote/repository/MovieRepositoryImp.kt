@@ -16,4 +16,8 @@ class MovieRepositoryImp (
         return movieService.getPelicula(id, language)
     }
 
+    override suspend fun searchMovies(query: String, language: String): List<MovieDto> {
+        return movieService.searchMovies(query, language).results
+    }
+
 }

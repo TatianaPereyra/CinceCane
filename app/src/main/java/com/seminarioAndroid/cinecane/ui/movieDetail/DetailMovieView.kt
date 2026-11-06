@@ -131,7 +131,7 @@ private fun DetallePelicula(
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
-                        .background(colorResource(R.color.buttonColor)),
+                        .background(colorResource(R.color.extraColor)),
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
@@ -262,7 +262,7 @@ private fun GeneroEtiqueta(
         fontSize = 14.sp,
         modifier = Modifier
             .background(
-                color = colorResource(R.color.buttonColor),
+                color = colorResource(R.color.extraColor),
                 shape = RoundedCornerShape(50)
             )
             .padding(horizontal = 12.dp, vertical = 6.dp)

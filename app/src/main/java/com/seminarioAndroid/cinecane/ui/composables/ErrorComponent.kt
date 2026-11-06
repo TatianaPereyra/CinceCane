@@ -66,7 +66,7 @@ fun HandleError(
             colors = ButtonDefaults.buttonColors(
                 containerColor = colorResource(R.color.secondaryColor),
                 contentColor = colorResource(R.color.primaryColor),
-                disabledContainerColor = colorResource(R.color.buttonColor))
+                disabledContainerColor = colorResource(R.color.extraColor))
         ){
             Text(text = stringResource(R.string.retry))
         }
